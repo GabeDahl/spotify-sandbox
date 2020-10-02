@@ -1,0 +1,6 @@
+<ng-container *ngIf="!loggedIn; else elseTemplate">
+    <app-login-page></app-login-page>
+</ng-container>
+<ng-template #elseTemplate>
+    <app-navigation></app-navigation>
+</ng-template>

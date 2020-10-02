@@ -1,0 +1,56 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.top {
+    width: 100vw;
+    height: 10vh;
+    top: 0px;
+    background-image: url("../../../assets/login-top.svg");
+    background-size: cover;
+}
+
+.bottom {
+    width: 100vw;
+    height: 20vh;
+    background-image: url("../../../assets/login-bottom.svg");
+    background-size: cover;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 50px;
+    margin: 5vw;
+    text-align: center;
+    color: white;
+}
+
+.subtitle-container {
+    display: flex;
+}
+
+h2 {
+    color: white;
+}
+
+img {
+    max-height: 5vh;
+}
+
+.subtitle-spacer {
+    width: 1vw;
+}
+
+.button {
+    margin-top: 5vh;
+    height: 60px;
+    width: 250px;
+    font-size: large;
+    background-color: #1ED760;
+    /* color: white; */
+}
