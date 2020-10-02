@@ -7,9 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-import { LoginPageComponent } from './components/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -45,13 +43,27 @@ import { AuthContainerComponent } from './containers/auth-container/auth-contain
 
 import * as fromUser from './store/reducers/user.reducer'
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationComponent } from './containers/navigation/navigation.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { DashboardComponent } from './components/views/dashboard/dashboard.component';
+import { LibraryComponent } from './components/views/library/library.component';
+import { AffinityComponent } from './components/views/affinity/affinity.component';
+import { VisualizerComponent } from './components/views/visualizer/visualizer.component';
+import { PlaylistsComponent } from './components/views/playlists/playlists.component';
+import { TracklistComponent } from './components/shared/tracklist/tracklist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     NavigationComponent,
-    AuthContainerComponent
+    AuthContainerComponent,
+    DashboardComponent,
+    LibraryComponent,
+    AffinityComponent,
+    VisualizerComponent,
+    PlaylistsComponent,
+    TracklistComponent
   ],
   imports: [
     BrowserModule,

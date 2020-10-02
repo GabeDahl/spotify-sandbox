@@ -9,12 +9,13 @@ export class AuthContainerComponent implements OnInit {
 
   accessToken: string;
   refreshToken: string;
+  
   loggedIn: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.loggedIn = false
+    this.loggedIn = true
   }
 
 }
