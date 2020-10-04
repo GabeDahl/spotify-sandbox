@@ -1,6 +1,9 @@
-<ng-container *ngIf="!loggedIn; else elseTemplate">
+<ng-container *ngIf="!accessToken && !refreshing">
     <app-login-page></app-login-page>
 </ng-container>
-<ng-template #elseTemplate>
+<ng-container *ngIf="!accessToken && refreshing">
+    <h1 style="color: white;">REFRESHING!</h1>
+</ng-container>
+<ng-container *ngIf="accessToken">
     <app-navigation></app-navigation>
-</ng-template>
+</ng-container>

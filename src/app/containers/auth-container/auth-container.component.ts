@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { CookieService } from 'ngx-cookie-service';
+import { switchMap } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
+
+import * as actions from '../../store/actions/index'
 
 @Component({
   selector: 'app-auth-container',
@@ -8,14 +15,29 @@ import { Component, OnInit } from '@angular/core';
 export class AuthContainerComponent implements OnInit {
 
   accessToken: string;
-  refreshToken: string;
+  refreshing: boolean = false;
   
-  loggedIn: boolean;
-
-  constructor() { }
+  constructor(
+    private authService: AuthService, 
+    private route: ActivatedRoute, 
+  ) {}
 
   ngOnInit(): void {
-    this.loggedIn = true
+    this.route.queryParamMap.subscribe(params => {
+      if (params.has('code')) {
+        this.authService.exchangeCode(params.get('code'));
+      }
+    })
+
+    this.authService.accessToken.subscribe(token => {
+      this.accessToken = token;
+    })
+
+    if (!this.accessToken && this.authService.refreshTokenValue) {
+      this.refreshing = true;
+      this.authService.refresh();
+    }
+
   }
 
 }

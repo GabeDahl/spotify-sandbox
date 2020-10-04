@@ -3,8 +3,6 @@ import { Followers } from "./followers.model";
 import { Image } from "./image.model";
 
 export interface User {
-    accessToken?: string;
-    refreshToken?: string;
     display_name?: string;
     external_urls?: ExternalURLs;
     user_id?: string;

@@ -5,18 +5,20 @@ import { DashboardComponent } from './components/views/dashboard/dashboard.compo
 import { LibraryComponent } from './components/views/library/library.component';
 import { PlaylistsComponent } from './components/views/playlists/playlists.component';
 import { VisualizerComponent } from './components/views/visualizer/visualizer.component';
+import { AuthContainerComponent } from './containers/auth-container/auth-container.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'library', component: LibraryComponent},
-  {path: 'affinity', component: AffinityComponent},
-  {path: 'visualizer', component: VisualizerComponent},
-  {path: 'playlists', component: PlaylistsComponent},
+  {path: 'library', component: LibraryComponent, pathMatch: 'full'},
+  {path: 'affinity', component: AffinityComponent, pathMatch: 'full'},
+  {path: 'visualizer', component: VisualizerComponent, pathMatch: 'full'},
+  {path: 'playlists', component: PlaylistsComponent, pathMatch: 'full'},
 ];
 
+
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

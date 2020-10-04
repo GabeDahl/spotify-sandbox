@@ -11,14 +11,14 @@
     width: 100vw;
     height: 10vh;
     top: 0px;
-    background-image: url("../../../assets/login-top.svg");
+    background-image: url('../../../../assets/login-top.svg');
     background-size: cover;
 }
 
 .bottom {
     width: 100vw;
     height: 20vh;
-    background-image: url("../../../assets/login-bottom.svg");
+    background-image: url("../../../../assets/login-bottom.svg");
     background-size: cover;
 }
 
