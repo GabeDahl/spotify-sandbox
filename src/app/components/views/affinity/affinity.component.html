@@ -1,1 +1,55 @@
-<p>affinity works!</p>
+<div class="view-container">
+  <ng-container *ngIf="topTracksShort && topTracksMedium && topTracksLong; else elseTemplate">
+
+    <mat-accordion class="accordian" multi='false'>
+      <!-- Three Top Tracks: Short, Medium, and Long Term -->
+      <mat-expansion-panel hideToggle class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Your Top Tracks
+          </mat-panel-title>
+          <mat-panel-description>
+            Short Term (approximately last 4 weeks)
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <app-tracklist [trackList]='topTracksShort.items'></app-tracklist>
+        </mat-card>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Your Top Tracks
+          </mat-panel-title>
+          <mat-panel-description>
+            Medium-Term (approximately last 6 months)
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <app-tracklist [trackList]='topTracksMedium.items'></app-tracklist>
+        </mat-card>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Your Top Tracks
+          </mat-panel-title>
+          <mat-panel-description>
+            Long-Term (calculated from several years of data and including all new data as it becomes available)
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <app-tracklist [trackList]='topTracksLong.items'></app-tracklist>
+        </mat-card>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </ng-container>
+
+  <ng-template #elseTemplate>
+      <app-loading></app-loading>
+  </ng-template>
+</div>

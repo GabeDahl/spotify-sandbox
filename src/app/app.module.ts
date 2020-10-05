@@ -54,6 +54,9 @@ import { TracklistComponent } from './components/shared/tracklist/tracklist.comp
 
 import { httpInterceptorProviders } from './interceptors/index'
 import { CookieService } from 'ngx-cookie-service';
+import { LoadingComponent } from './components/views/loading/loading.component';
+import { TracklistItemComponent } from './components/shared/tracklist-item/tracklist-item.component';
+import { TrackCardComponent } from './components/shared/track-card/track-card.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { CookieService } from 'ngx-cookie-service';
     AffinityComponent,
     VisualizerComponent,
     PlaylistsComponent,
-    TracklistComponent
+    TracklistComponent,
+    LoadingComponent,
+    TracklistItemComponent,
+    TrackCardComponent
   ],
   imports: [
     BrowserModule,

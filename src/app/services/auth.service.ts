@@ -40,7 +40,7 @@ export class AuthService {
     let url = `https://accounts.spotify.com/authorize/`
         + "?response_type=code"
         + "&client_id="+encodeURIComponent('e0c1406ff1da42c7a695a8edc1eac028')
-        + "&scope="+encodeURIComponent('user-library-read user-top-read streaming')
+        + "&scope="+encodeURIComponent('user-library-read user-top-read streaming user-read-private')
         + "&redirect_uri="+encodeURIComponent('http://localhost:4200')
         + "&code_challenge="+encodeURIComponent(code_challenge)
         + "&code_challenge_method=S256"
@@ -58,7 +58,7 @@ export class AuthService {
       .set('refresh_token', this.refreshTokenValue);
     this.http.post('https://accounts.spotify.com/api/token', postData).subscribe((data: any) => {
       this.accessToken.next(data.access_token)
-      this.accessToken.next(data.refresh_token)
+      this.refreshToken.next(data.refresh_token)
       this.cookieService.set('refreshToken', data.refresh_token)
       setTimeout(() => {
         this.refresh()

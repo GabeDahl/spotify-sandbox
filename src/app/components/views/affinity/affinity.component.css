@@ -1,0 +1,15 @@
+.view-container {
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    width: 100%;
+}
+
+.accordian {
+    margin-top: 10vh;
+    width: 90%;
+}
+
+.panel {
+    width: 100%;
+}

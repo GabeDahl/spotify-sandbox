@@ -1,9 +1,6 @@
 .container {
     display: flex;
     font-size: small;
-    padding-right: 2vw;
-    background-color: lightgrey;
-    color: #000;
 }
 
 .spacer1 {
@@ -16,6 +13,10 @@
     display: flex;
     align-items: center;
     flex: 2;
+}
+
+.pop-bar {
+    margin-right: 3vw;
 }
 
 .tiny-spacer {

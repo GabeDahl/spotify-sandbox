@@ -2,7 +2,7 @@
     <app-login-page></app-login-page>
 </ng-container>
 <ng-container *ngIf="!accessToken && refreshing">
-    <h1 style="color: white;">REFRESHING!</h1>
+    <app-loading></app-loading>
 </ng-container>
 <ng-container *ngIf="accessToken">
     <app-navigation></app-navigation>

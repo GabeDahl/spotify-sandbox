@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Track } from 'src/app/store/models/track.model';
 
 @Component({
   selector: 'app-tracklist',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tracklist.component.css']
 })
 export class TracklistComponent implements OnInit {
+
+  @Input()
+  trackList: Track[]
 
   constructor() { }
 
