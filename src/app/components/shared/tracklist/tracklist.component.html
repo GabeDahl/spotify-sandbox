@@ -2,7 +2,8 @@
 
   <!-- Custom header row. TODO: Convert to Material Sortable Table -->
   <div class="container">
-    <div class="spacer2">
+    <div class="spacer3">
+        <span class="tiny-spacer"></span>
         <span>Rank</span>
         <span class="tiny-spacer"></span>
         <span>Name</span>
@@ -11,12 +12,13 @@
         <mat-icon>bar_chart</mat-icon>
         <span>Popularity</span>
     </div>
-    <div class="spacer1">
+    <div class="spacer2">
         <mat-icon>headset</mat-icon>
         <span>Artist</span>
     </div>
   </div>
   <mat-list-option *ngFor="let track of trackList; index as i">
     <app-tracklist-item [track]="track" [index]="i"></app-tracklist-item>
+    <hr id="line">
   </mat-list-option>
 </mat-selection-list>

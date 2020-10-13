@@ -37,7 +37,12 @@
       
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
+    <div class="view-container">
+      <div class="view-sizer">
+        <router-outlet></router-outlet>
+      </div>
+      <app-player></app-player>
+    </div>
   
   </mat-sidenav-content>
 </mat-sidenav-container>

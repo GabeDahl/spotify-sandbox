@@ -1,3 +1,36 @@
+$md-mcgpalette0: (
+    50 : #e4faec,
+    100 : #bcf3cf,
+    200 : #8febb0,
+    300 : #62e390,
+    400 : #40dd78,
+    500 : #1ed760,
+    600 : #1ad358,
+    700 : #16cd4e,
+    800 : #12c744,
+    900 : #0abe33,
+    A100 : #e9ffed,
+    A200 : #b6ffc3,
+    A400 : #83ff9a,
+    A700 : #69ff85,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -12,7 +45,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$spotify-sandbox-primary: mat-palette($mat-indigo);
+$spotify-sandbox-primary: mat-palette($md-mcgpalette0);
 $spotify-sandbox-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).

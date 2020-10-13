@@ -24,3 +24,13 @@
 .search-field {
   width: 150px;
 }
+
+.view-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-sizer {
+  height: 80vh;
+  overflow-y: scroll;
+}

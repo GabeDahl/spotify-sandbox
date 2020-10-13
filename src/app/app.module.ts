@@ -57,6 +57,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoadingComponent } from './components/views/loading/loading.component';
 import { TracklistItemComponent } from './components/shared/tracklist-item/tracklist-item.component';
 import { TrackCardComponent } from './components/shared/track-card/track-card.component';
+import { PlayerComponent } from './containers/player/player.component';
+import { PlayerControlsComponent } from './components/player-controls/player-controls.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { TrackCardComponent } from './components/shared/track-card/track-card.co
     TracklistComponent,
     LoadingComponent,
     TracklistItemComponent,
-    TrackCardComponent
+    TrackCardComponent,
+    PlayerComponent,
+    PlayerControlsComponent
   ],
   imports: [
     BrowserModule,

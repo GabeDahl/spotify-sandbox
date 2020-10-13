@@ -19,7 +19,8 @@ export class AuthContainerComponent implements OnInit {
   
   constructor(
     private authService: AuthService, 
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
+    private cookieService: CookieService 
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class AuthContainerComponent implements OnInit {
       this.accessToken = token;
     })
 
-    if (!this.accessToken && this.authService.refreshTokenValue) {
+    if (!this.accessToken && this.cookieService.get('refreshToken')) {
       this.refreshing = true;
       this.authService.refresh();
     }

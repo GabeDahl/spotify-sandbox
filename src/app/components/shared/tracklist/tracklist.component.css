@@ -2,7 +2,7 @@
     display: flex;
     font-size: small;
     padding-right: 2vw;
-    background-color: lightgrey;
+    background-color: #1ed75f81;
     color: #000;
 }
 
@@ -18,6 +18,18 @@
     flex: 2;
 }
 
+.spacer3 {
+    display: flex;
+    align-items: center;
+    flex: 3;
+}
+
 .tiny-spacer {
     width: 1vw;
+}
+
+#line {
+    border-color: lightgrey;
+    background-color: lightgrey;
+    margin-top: 1vh;
 }

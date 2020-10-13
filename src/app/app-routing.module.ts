@@ -6,9 +6,10 @@ import { LibraryComponent } from './components/views/library/library.component';
 import { LoadingComponent } from './components/views/loading/loading.component';
 import { PlaylistsComponent } from './components/views/playlists/playlists.component';
 import { VisualizerComponent } from './components/views/visualizer/visualizer.component';
-import { AuthContainerComponent } from './containers/auth-container/auth-container.component';
+import { DashGuardGuard } from './guards/dash-guard.guard'
 
 const routes: Routes = [
+  {path: '', component: DashboardComponent, canActivate: [DashGuardGuard]},
   {path: 'loading', component: LoadingComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'library', component: LibraryComponent, pathMatch: 'full'},

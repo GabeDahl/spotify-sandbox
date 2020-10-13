@@ -40,7 +40,7 @@ export class AuthService {
     let url = `https://accounts.spotify.com/authorize/`
         + "?response_type=code"
         + "&client_id="+encodeURIComponent('e0c1406ff1da42c7a695a8edc1eac028')
-        + "&scope="+encodeURIComponent('user-library-read user-top-read streaming user-read-private')
+        + "&scope="+encodeURIComponent('user-library-read user-library-modify user-read-email user-top-read streaming user-read-private user-read-playback-state user-modify-playback-state')
         + "&redirect_uri="+encodeURIComponent('http://localhost:4200')
         + "&code_challenge="+encodeURIComponent(code_challenge)
         + "&code_challenge_method=S256"
