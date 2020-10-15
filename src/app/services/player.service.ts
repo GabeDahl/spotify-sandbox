@@ -56,4 +56,14 @@ export class PlayerService {
     document.getElementsByTagName('body')[0].appendChild(node);
   }
 
+  pause() {
+
+  }
+
+  resume() {
+
+  }
+
+  
+
 }

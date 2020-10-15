@@ -35,6 +35,7 @@ export class AuthContainerComponent implements OnInit {
     })
 
     if (!this.accessToken && this.cookieService.get('refreshToken')) {
+      console.log('refreshing')
       this.refreshing = true;
       this.authService.refresh();
     }

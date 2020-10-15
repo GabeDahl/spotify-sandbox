@@ -1,6 +1,6 @@
 <div class='container'>
     <ng-container *ngIf="user; else elseTemplate">
-        <h1 *ngFor="let item of user | keyvalue" >{{item.key}}: {{item.value}}</h1>
+        <h1>What's up {{user.display_name}}</h1>
     </ng-container>
     <ng-template #elseTemplate>
         <app-loading></app-loading>

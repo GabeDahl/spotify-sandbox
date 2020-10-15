@@ -3,4 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
+}
+
+mat-grid-tile {
+    background: lightblue;
 }

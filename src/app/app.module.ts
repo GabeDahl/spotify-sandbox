@@ -59,6 +59,8 @@ import { TracklistItemComponent } from './components/shared/tracklist-item/track
 import { TrackCardComponent } from './components/shared/track-card/track-card.component';
 import { PlayerComponent } from './containers/player/player.component';
 import { PlayerControlsComponent } from './components/player-controls/player-controls.component';
+import { SearchResultsComponent } from './components/views/search-results/search-results.component';
+import { MinuteSecondPipe } from './pipes/minute-second.pipe';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { PlayerControlsComponent } from './components/player-controls/player-con
     TracklistItemComponent,
     TrackCardComponent,
     PlayerComponent,
-    PlayerControlsComponent
+    PlayerControlsComponent,
+    SearchResultsComponent,
+    MinuteSecondPipe
   ],
   imports: [
     BrowserModule,

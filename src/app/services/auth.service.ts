@@ -27,7 +27,7 @@ export class AuthService {
     this.refreshToken.next(this.cookieService.get('refreshToken'))
   }
 
-  async login() {
+  async login() { 
     // Create and store a new PKCE code_verifier (the plaintext random secret)
     let code_verifier = this.generateRandomString();
     localStorage.setItem("pkce_code_verifier", code_verifier);
@@ -85,10 +85,10 @@ export class AuthService {
     localStorage.removeItem("pkce_code_verifier");
     this.http.post('https://accounts.spotify.com/api/token', postData).subscribe((data: any) => {
       this.accessToken.next(data.access_token)
-      this.accessToken.next(data.refresh_token)
-      this.cookieService.set('refreshToken', data.refresh_token)
+      this.refreshToken.next(data.refresh_token)
+      this.cookieService.set('refreshToken', data.refresh_token, 5)
       setTimeout(() => {
-        this.refresh()
+        window.location.reload();
       }, 1000 * 60 * 59);
     })
   }

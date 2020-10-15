@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
     <ng-container *ngIf="playerState; else elseTemplate">
-        <app-player-controls [playerState]='playerState' ></app-player-controls>
+        <app-player-controls style="width: 100%;" [playerState]='playerState' ></app-player-controls>
     </ng-container>
     <ng-template #elseTemplate>
         <span>Please select Sandbox using Spotify Connect</span>

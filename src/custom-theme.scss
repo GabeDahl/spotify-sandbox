@@ -46,7 +46,7 @@ $md-mcgpalette0: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $spotify-sandbox-primary: mat-palette($md-mcgpalette0);
-$spotify-sandbox-accent: mat-palette($mat-pink, A200, A100, A400);
+$spotify-sandbox-accent: mat-palette($md-mcgpalette0);
 
 // The warn palette is optional (defaults to red).
 $spotify-sandbox-warn: mat-palette($mat-red);

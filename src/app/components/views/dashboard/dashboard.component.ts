@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/store/models/user.model';
 import { UserDataService } from '../../../services/user-data.service'
 
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   user: User;
 
-  constructor(private userDataService: UserDataService) { }
+  constructor(private userDataService: UserDataService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.userDataService.getUserProfile().subscribe((res) => {
