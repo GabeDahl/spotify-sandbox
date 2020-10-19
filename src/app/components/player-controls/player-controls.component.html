@@ -1,32 +1,50 @@
-<div class="outer-row">
-    <div class="column">
-        <div class="row">
-            <img class="album-image" [src]="playerState.track_window.current_track.album.images[0].url" alt="album">
-            <div class="column">
-                <span class="track-name">{{playerState.track_window.current_track.name}}</span>
-                <span class="artist-name">{{playerState.track_window.current_track.artists[0].name}}</span>
+<ng-container *ngIf="playerState">
+    <div class="outer-row" @fadeIn>
+        <div class="column">
+            <div class="row">
+                <img class="album-image" [src]="playerState.track_window.current_track.album.images[0].url" alt="album">
+                <div class="column">
+                    <span class="track-name">{{playerState.track_window.current_track.name}}</span>
+                    <span class="artist-name">{{playerState.track_window.current_track.artists[0].name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="btn-row">
+                <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">shuffle</mat-icon></button>
+                <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">skip_previous</mat-icon></button>
+                <ng-container *ngIf="playerState.paused; else elseTemplate">
+                    <button 
+                        (click)="play()" 
+                        mat-icon-button 
+                        class="lrg-btn">
+                        <mat-icon [inline]="true" class="lrg-icon">play_arrow</mat-icon>
+                    </button>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <button 
+                        (click)="pause()" 
+                        mat-icon-button 
+                        class="lrg-btn">
+                        <mat-icon [inline]="true" class="lrg-icon">pause</mat-icon>
+                    </button>
+                </ng-template>
+                <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">skip_next</mat-icon></button>
+                <button mat-icon-button (click)="openRepeatMessage()" class="btn"><mat-icon class="icon" [inline]="true">loop</mat-icon></button>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <span class="time">{{currentPosition | minuteSecond }}</span>
+                <mat-slider 
+                    class="slider"
+                    [max]="playerState.duration"
+                    [min]="min"
+                    [value]="playerState.position"
+                    (change)="changePosition($event)"
+                ></mat-slider>
+                <span class="time">{{playerState.duration | minuteSecond }}</span>
             </div>
         </div>
     </div>
-    <div class="column">
-        <div class="btn-row">
-            <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">shuffle</mat-icon></button>
-            <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">skip_previous</mat-icon></button>
-            <ng-container *ngIf="playerState.paused; else elseTemplate">
-                <button mat-icon-button class="lrg-btn"><mat-icon [inline]="true" class="lrg-icon">play_arrow</mat-icon></button>
-            </ng-container>
-            <ng-template #elseTemplate>
-                <button mat-icon-button class="lrg-btn"><mat-icon [inline]="true" class="lrg-icon">pause</mat-icon></button>
-            </ng-template>
-            <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">skip_next</mat-icon></button>
-            <button mat-icon-button class="btn"><mat-icon class="icon" [inline]="true">loop</mat-icon></button>
-        </div>
-    </div>
-    <div class="column">
-        <div class="row">
-            <span class="time">{{playerState.position | minuteSecond }}</span>
-            <mat-slider class="slider"></mat-slider>
-            <span class="time">{{playerState.duration | minuteSecond }}</span>
-        </div>
-    </div>
-</div>
+</ng-container>

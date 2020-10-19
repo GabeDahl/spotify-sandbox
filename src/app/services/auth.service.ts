@@ -24,7 +24,8 @@ export class AuthService {
       this.refreshTokenValue = val;
     })
 
-    this.refreshToken.next(this.cookieService.get('refreshToken'))
+    this.refreshToken.next(this.cookieService.get('refreshToken'));
+    console.log('rt:' + this.refreshTokenValue);
   }
 
   async login() { 
@@ -86,7 +87,9 @@ export class AuthService {
     this.http.post('https://accounts.spotify.com/api/token', postData).subscribe((data: any) => {
       this.accessToken.next(data.access_token)
       this.refreshToken.next(data.refresh_token)
-      this.cookieService.set('refreshToken', data.refresh_token, 5)
+      let date = new Date();
+      date.setDate(date.getDate() + 7);
+      this.cookieService.set('refreshToken', data.refresh_token, date);
       setTimeout(() => {
         window.location.reload();
       }, 1000 * 60 * 59);

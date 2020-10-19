@@ -11,7 +11,6 @@ import { PlayerState } from '../../store/models/player-state.model'
 })
 export class PlayerComponent implements OnInit {
 
-  @Output()
   playerState: PlayerState;
 
   constructor(private playerService: PlayerService) {}

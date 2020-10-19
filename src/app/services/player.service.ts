@@ -1,5 +1,6 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { PlayerState } from '../store/models/player-state.model';
 import { AuthService } from './auth.service';
 
@@ -10,7 +11,7 @@ export class PlayerService {
 
   playerState: Subject<PlayerState>;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private http: HttpClient) {
     this.playerState = new Subject<PlayerState>();
   }
 
@@ -30,7 +31,12 @@ export class PlayerService {
     
       // Playback status updates
       player.addListener('player_state_changed', state => {
-        this.playerState.next(state);
+        if (state.position > 0 && state.position < 500) {
+          console.log('dirty state', state)
+        } else {
+          console.log(state)
+          this.playerState.next(state);
+        }
       });
     
       // Ready
@@ -56,14 +62,38 @@ export class PlayerService {
     document.getElementsByTagName('body')[0].appendChild(node);
   }
 
-  pause() {
-
+  play(): Observable<any> {
+    return this.http.put('https://api.spotify.com/v1/me/player/play', null);
   }
 
-  resume() {
-
+  pause(): Observable<any> {
+    return this.http.put('https://api.spotify.com/v1/me/player/pause', null);
   }
 
+  changePosition(position): Observable<any> {
+    let params = new HttpParams().append("position_ms", position);
+    return this.http.put('https://api.spotify.com/v1/me/player/seek', null, {params: params});
+  }
+
+  toggleShuffle() {
+    return this.http.put('https://api.spotify.com/v1/me/player/shuffle', null);
+  }
+
+  // TODO: add support for repeating tracks/contexts
+  // repeatTrack() {
+  //   let params = new HttpParams().append("state", "track");
+  //   return this.http.put('https://api.spotify.com/v1/me/player/repeat', null, {params: params});
+  // }
+
+  // repeatContext() {
+  //   let params = new HttpParams().append("state", "track");
+  //   return this.http.put('https://api.spotify.com/v1/me/player/repeat', null, {params: params});
+  // }
+
+  // turnRepeatOff() {
+  //   let params = new HttpParams().append("state", "track");
+  //   return this.http.put('https://api.spotify.com/v1/me/player/repeat', null, {params: params});
+  // }
   
 
 }
